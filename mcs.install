@@ -1,0 +1,31 @@
+<?php
+// $Id: standard.install,v 1.30 2011/01/04 18:24:24 webchick Exp $
+
+/**
+ * Configures modules installed in this profile. 
+ *
+ * @author Stefan Nagey
+ */
+
+function mcs_module_configure() {
+	// Mollom
+	variable_set('mollom_public_key', '83f61a06724dff7ac9d0ee12921e9bd6');
+	variable_set('mollom_private_key', 'c3c05429d944d81436fc04c2d8330f7f');
+	
+	//Google Analytyics
+	variable_set('googleanalytics_account', '21048180-1');
+	
+}
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function mcs_install() {
+	include_once DRUPAL_ROOT . '/profiles/main/main.install';
+	main_install();
+	
+	mcs_module_configure();
+	
+}
