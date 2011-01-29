@@ -13,7 +13,7 @@ function mcs_module_configure() {
 	variable_set('mollom_private_key', 'c3c05429d944d81436fc04c2d8330f7f');
 	
 	//Google Analytyics
-	variable_set('googleanalytics_account', '21048180-1');
+	variable_set('googleanalytics_account', 'UA-21048180-1');
 	
 }
 
@@ -23,9 +23,11 @@ function mcs_module_configure() {
  * Perform actions to set up the site for this profile.
  */
 function mcs_install() {
+
+	mcs_module_configure();
+
 	include_once DRUPAL_ROOT . '/profiles/main/main.install';
 	main_install();
 	
-	mcs_module_configure();
 	
 }
